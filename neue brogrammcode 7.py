@@ -1,59 +1,70 @@
-#===========================
-#
-#Digetaler-Haushalt. 
-#
-#===========================
 
 
+
+#=================================================
+#
+# digitaler Halthaus 
+#
+#==========≈=======================================
+
+#veriablen 
+wöterbuch = {}
+
+
+
+#gehimezahl 
 while True :
-	geheimzahl = input("geheimzahl : ")
-	if geheimzahl == "1":
-		print("Wilkommen Abdallah")
-		break
-	else :
-		print("falsche geheimzahl")
-		
+    gehimezahl = input("was ist deine gehimezahl : ")
+    if gehimezahl == "1" :
+        print("welkommen Abdallah")
+        break
+    else :
+       print("falsche nummer ")
+       
+    #Main Menue:
+def main_manue () :
+    while True :
+        print("|__Main Menue__|")     
+        print("1 - wöterbuch ")
+        print("2 - Neue woter ")
+        print("3 - Aufgaben ")
+        print("0 - schleißen ")
+        auswahl = input("wahl eine Nummer: ")
+        if auswahl == "1" :
+            print(wöterbuch)
+            print("0 - |__Main Menue__|" )
+            auswahl2 = input("wahl eine Nummer : ")
+            if auswahl2 == "0" :
+                print("Ok")
+        elif auswahl == "2" :
+            wort = input("schreib das woter : ")
+            bedeutung = input("schrieb das bedeutung  : ")
+            wöterbuch[wort] = bedeutung 
+            print("du hast ein neue wort geschrieben✅️ ")
+            print("0 - |__Main Menue__|")
+            auswahl3 = input("wahl eine Nummer : ")
+            if auswahl3 == "0" :
+                print("Ok")
+        elif auswahl == "3" :
+            print("Deutsch lernen ")
+            print("Programmieren ")
+            print("gesundes Essen ")
+            print("0 - |__Main Menue__|" )
+            auswahl4 = input("wahl eine Nummer : " )
+            if auswahl4 == "0" :
+                print("Ok")
+        else :
+            print("Tschüss")
+            break
+main_manue()
 
-# 1 - Hauptmenü ..
-vokablen = {}
-i = 0
-
-def hauptmenü () :
-	while True :
-		print("1 - wöterbuch & vokabel_trainer.")
-		print("2 - kalorienrichner")
-		print("3 - To_Do_liste")
-		print("4 - programschleißen")
-		
-	
-		auswahl = input("wahl eine nummer : ")
-		
-		#1 - wöterbuch & vokabel_trainer.
-		while True :
-			if auswahl == "1" :
-				print("1 - wöterbuch.")
-				print("2 - neue vokabel")
-				print("3 - Vokabel trainer.")
-							
-				auswahl2 = input("wahl eine nummer : ")
-			if auswahl2 == "1" :
-				print(vokablen)
-				print("0 - schleißen.")
-				i = input("")
-				break
-					
-			elif auswahl2 == "2" :
-				wort = 												input("Das wort mit Deutsch : ")
-				bedeutung = input("Das wort mit Arabisch : ")
-				vokablen[wort] = bedeutung
-				print("Das wort wurde gespeichert")
-			else :
-				break
-			
-						
-
-hauptmenü () 						
-								
-
-
-
+#===================================================
+#
+#Namme : Abdallah mohamed 🐱
+#von : 20/9/2026
+#bis : 21/9/2026
+#
+#===================================================
+         
+           
+        
