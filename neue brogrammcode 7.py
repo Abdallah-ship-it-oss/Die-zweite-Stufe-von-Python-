@@ -1,6 +1,7 @@
 
 
 
+
 #=================================================
 #
 # digitaler Halthaus 
@@ -9,36 +10,38 @@
 
 #veriablen 
 wöterbuch = {}
+Aufgaben = []
 
 
 
 #gehimezahl 
 while True :
-    gehimezahl = input("was ist deine gehimezahl : ")
+    gehimezahl = input("was ist deine gehimezahl 🔒 : ")
     if gehimezahl == "1" :
-        print("welkommen Abdallah")
+        print("welkommen Abdallah 👋")
         break
     else :
-       print("falsche nummer ")
+       print("falsche nummer ❌️ ")
        
     #Main Menue:
 def main_manue () :
     while True :
         print("|__Main Menue__|")     
-        print("1 - wöterbuch ")
-        print("2 - Neue woter ")
-        print("3 - Aufgaben ")
-        print("0 - schleißen ")
-        auswahl = input("wahl eine Nummer: ")
+        print("1 - wöterbuch 📙 ")
+        print("2 - Neue woter ✒️ ")
+        print("3 - Aufgaben 📝 ")
+        print("0 - schleißen 👋 ")
+        auswahl = input("wahl eine Nummer : ")
         if auswahl == "1" :
-            print(wöterbuch)
+            for wort , bedeutung in wöterbuch.items():
+                print(wort,"->",bedeutung)
             print("0 - |__Main Menue__|" )
             auswahl2 = input("wahl eine Nummer : ")
             if auswahl2 == "0" :
                 print("Ok")
         elif auswahl == "2" :
-            wort = input("schreib das woter : ")
-            bedeutung = input("schrieb das bedeutung  : ")
+            wort = input("schreib das woter ✒️ : ")
+            bedeutung = input("schrieb das bedeutung ✒️ : ")
             wöterbuch[wort] = bedeutung 
             print("du hast ein neue wort geschrieben✅️ ")
             print("0 - |__Main Menue__|")
@@ -46,16 +49,25 @@ def main_manue () :
             if auswahl3 == "0" :
                 print("Ok")
         elif auswahl == "3" :
-            print("Deutsch lernen ")
-            print("Programmieren ")
-            print("gesundes Essen ")
+            print(Aufgaben)
             print("0 - |__Main Menue__|" )
-            auswahl4 = input("wahl eine Nummer : " )
-            if auswahl4 == "0" :
-                print("Ok")
+            print("1 - neue Aufgabe ➡️ ")
+            print("2 - Aufgaben anziehen 📝 .")      
+            auswahl5 = input("wahl eine Nummer: ")
+            if auswahl5 == "1":
+                neue_aufgabe = input("was ist die neue Aufgabe : ")
+                Aufgaben.append(neue_aufgabe)
+                print("die Aufgabe wurde hinzugefügt ✅️")
+            elif auswahl5 =="2" :
+                print(Aufgaben)    
+            else :
+                break    
+        elif auswahl == "0":
+            print("Tschüss 👋")
+            break      
         else :
-            print("Tschüss")
-            break
+            print("falsche Nummer ❌️")
+            
 main_manue()
 
 #===================================================
