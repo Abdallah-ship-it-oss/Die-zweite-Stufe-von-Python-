@@ -18,7 +18,9 @@ title = tk.Label (window ,text ="Main Manu" ,front =("Arial" ,18 ,"bold"))
 title.pack(pady = 20)
 
 #Buttons
-but1 = tk.Button(window ,text ="1 - Add new German word. " ,width = 30 )
+def add_word():
+  print("clicked")
+but1 = tk.Button(window ,text ="1 - Add new German word. " ,width = 30 ,command = add_word)
 but1.pack(pady = 5)
 
 
