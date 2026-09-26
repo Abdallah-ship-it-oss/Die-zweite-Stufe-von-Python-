@@ -8,13 +8,13 @@
 #============================================
 
 import tkinter as tk
-window = tk.TK ()
+window = tk.Tk ()
 window.title("mein projekt 🤍")
-window.geometry("400×500")
+window.geometry("400x500")
 
 # Abdallah'z main manu 📙
 
-title = tk.Label (window ,text ="Main Manu" ,front =("Arial" ,18 ,"blod"))
+title = tk.Label (window ,text ="Main Manu" ,front =("Arial" ,18 ,"bold"))
 title.pack(pady = 20)
 
 #Buttons
