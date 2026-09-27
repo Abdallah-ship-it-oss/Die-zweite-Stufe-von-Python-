@@ -1,12 +1,12 @@
 
 #============================================
 #
-#mwin Grüße projekt für Ausbildung 🤍
+#Das ist mein Grüße projekt für Ausbildung 🤍
 # ich bin Abdallah und ich mache diesen programmcode für meine Ausbildung.
 #Datum :-
 #Von : 24/9/2026.
 #bis : 
-#Autor :Abdallah 🐱
+#Autor: Abdallah mohamed 🐱
 #
 #============================================
 
@@ -27,7 +27,7 @@ title.pack(pady = 20)
 #===========================================
 
 def add_word():
-  add_window = tk.toplevel(window)
+  add_window = tk.Toplevel(window)
   add_window.title("Add new German word ")
   add_window.geometry("350x250")
 
@@ -39,8 +39,14 @@ def add_word():
   entry_ar = tk.Entry(add_window, width = 30)
   entry_ar.pack(pady = 5)
   
-  tk.Button(add_window ,text = "save" ,width = 15).pack(pady = 5)
+  def save_word() :
+    german = entry_de.get()
+    arabic = entry_ar.get()
+    print(f"DE :{german} | AR :{arabic}")
+  
+  tk.Button(add_window ,text = "save" ,width = 15 ,command = save_word).pack(pady = 10)
   tk.Button(add_window ,text = "Cancel" ,width = 15 ,command = add_window.destroy).pack(pady = 5)
+
   
   
 but1 = tk.Button(window ,text ="1 - Add new German word. " ,width = 30 ,command = add_word)
