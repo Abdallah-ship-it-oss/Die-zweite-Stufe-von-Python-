@@ -27,7 +27,22 @@ title.pack(pady = 20)
 #===========================================
 
 def add_word():
-  print("clicked")
+  add_window = tk.toplevel(window)
+  add_window.title("Add new German word ")
+  add_window.geometry("350x250")
+
+  tk.Label(add_window ,text = "German word : ").pack(pady = 5)
+  entry_de = tk.Entry(add_window, width = 30)
+  entry_de.pack(pady = 5)
+
+  tk.Label(add_window ,text = "Arabic word : ").pack(pady = 5)
+  entry_ar = tk.Entry(add_window, width = 30)
+  entry_ar.pack(pady = 5)
+  
+  tk.Button(add_window ,text = "save" ,width = 15).pack(pady = 5)
+  tk.Button(add_window ,text = "Cancel" ,width = 15 ,command = add_window.destroy).pack(pady = 5)
+  
+  
 but1 = tk.Button(window ,text ="1 - Add new German word. " ,width = 30 ,command = add_word)
 but1.pack(pady = 5)
 
