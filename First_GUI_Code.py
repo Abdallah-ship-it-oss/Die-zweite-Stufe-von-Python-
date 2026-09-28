@@ -34,7 +34,7 @@ title.pack(pady = 20)
 def add_word():
   add_window = tk.Toplevel(window)
   add_window.title("Add new German word ")
-  add_window.geometry("350x250")
+  add_window.geometry("350x280")
 
   tk.Label(add_window ,text = "German word : ").pack(pady = 5)
   entry_de = tk.Entry(add_window, width = 30)
@@ -43,18 +43,21 @@ def add_word():
   tk.Label(add_window ,text = "Arabic word : ").pack(pady = 5)
   entry_ar = tk.Entry(add_window, width = 30)
   entry_ar.pack(pady = 5)
+
+  message_label = tk.Label(add_window ,text="" ,fg = "red")
+  message_label.pack(pady=5)
   
   def save_word() :
-    german = entry_de.get()
-    arabic = entry_ar.get()
+    german = entry_de.get().strip()
+    arabic = entry_ar.get().strip()
     
     if not geeman or not arabic :
-      print("please full both fields")
+      message_label.config(text="please full both fields")
       return 
       
     with open ("Word_book.txt" ,"a",encoding ="utf-8") as file :
       file.write(f"{german} | {arabic}/n")
-      
+      message Label
     add_window.destroy()  
     
   tk.Button(add_window ,text = "save" ,width = 15 ,command = save_word).pack(pady = 10)
