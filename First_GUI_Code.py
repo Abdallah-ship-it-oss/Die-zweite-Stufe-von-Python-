@@ -11,6 +11,12 @@
 #============================================
 
 import tkinter as tk
+
+#===================
+word_book = {}
+Workout = []
+#===================
+
 window = tk.Tk ()
 window.title("mein projekt 🤍")
 window.geometry("400x500")
@@ -22,7 +28,6 @@ window.geometry("400x500")
 title = tk.Label (window ,text ="Main Menu" ,font =("Arial" ,18 ,"bold"))
 title.pack(pady = 20)
 
-#===========================================
 #Buttons 🟢
 #===========================================
 
@@ -42,8 +47,12 @@ def add_word():
   def save_word() :
     german = entry_de.get()
     arabic = entry_ar.get()
-    print(f"DE :{german} | AR :{arabic}")
-  
+    
+    with open ("Word_book.txt" ,"a",encoding ="utf-8") as file :
+      file.write(f"{german} | {arabic}/n")
+      
+    add_window.destroy()  
+    
   tk.Button(add_window ,text = "save" ,width = 15 ,command = save_word).pack(pady = 10)
   tk.Button(add_window ,text = "Cancel" ,width = 15 ,command = add_window.destroy).pack(pady = 5)
 
