@@ -78,15 +78,15 @@ def add_workout():
     entry_wo = tk.Entry(add_window2 ,width=30)
     entry_wo.pack(pady=5)
     def save_workout():
-        Workout = entry_wo.get().strip()
+        workout1 = entry_wo.get().strip()
 
-        if not entry_wo :
+        if not workout1 :
             message_label.config(text="⚠ Please fill the field!") 
             return 
-        with open("add_workout.txt" ,"a" ,encoding ="utf-8") as file :
-            file.write(f"{Workout}\n")
+        with open("workout.txt" ,"a" ,encoding ="utf-8") as file :
+            workout1.append(workout)
         
-        add_window.destroy()
+        add_window2.destroy()
         
     tk.Button(add_window2 ,text="Save" ,width=15 ,command =save_workout).pack(pady=5)
     tk.Button(add_window2 ,text="Cancel" ,width=15 ,command=add_window2.destroy).pack(pady=5)
