@@ -48,6 +48,10 @@ def add_word():
     german = entry_de.get()
     arabic = entry_ar.get()
     
+    if not geeman or not arabic :
+      print("please full both fields")
+      return 
+      
     with open ("Word_book.txt" ,"a",encoding ="utf-8") as file :
       file.write(f"{german} | {arabic}/n")
       
