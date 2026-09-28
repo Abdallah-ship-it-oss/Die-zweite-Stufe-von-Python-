@@ -27,10 +27,9 @@ window.geometry("400x500")
 
 title = tk.Label(window, text="Main Menu", font=("Arial", 18, "bold"))
 title.pack(pady=20)
-
-#===========================================
-# Buttons 🟢
-#===========================================
+#=====================================================================
+# Codes ✅️
+#=====================================================================
 
 def add_word():
     add_window = tk.Toplevel(window)
@@ -67,8 +66,33 @@ def add_word():
               command=save_word).pack(pady=10)
     tk.Button(add_window, text="Cancel", width=15,
               command=add_window.destroy).pack(pady=5)
+    
+#================================================================
 
+def add_workout():
+    add_window2 = tk.Toplevel(window)
+    add_window2.title("Add new Workout")
+    add_window2.geometry("350x280")
 
+    tk.Label(add_window2 ,text="Put your new Workout : ").pack(pady=5)
+    entry_wo = tk.Entry(add_window2 ,width=30)
+    entry_wo.pack(pady=5)
+    def save_workout():
+        Workout = entry_wo.get().strip()
+
+        if not entry_wo :
+            message_label.config(text="⚠ Please fill the field!") 
+            return 
+        with open("add_workout.txt" ,"a" ,encoding ="utf-8") as file :
+            file.write(f"{Workout}"\n)
+        
+        add_window.destroy()
+        
+    tk.Button(add_window2 ,text="Save" ,width=15 ,command =save_workout).pack(pady=5)
+    tk.Button(add_window2 ,text="Cancel" ,width=15 ,command=add_window2.destroy).pack(pady=5)
+#================================================================
+# Buttons ✅️
+#================================================================
 but1 = tk.Button(window, text="1 - Add new German word.",
                  width=30, command=add_word)
 but1.pack(pady=5)
