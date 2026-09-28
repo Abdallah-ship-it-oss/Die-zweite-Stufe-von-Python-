@@ -87,10 +87,13 @@ def add_workout():
         if not workout1 :
             message_label.config(text="⚠ Please fill the field!") 
             return 
-        with open("workout.txt" ,"a" ,encoding ="utf-8") as file :
-            workout.append(workout1)
-            file.write(f"{Workout1}\n")   
             
+        Workout.append(workout1)
+        
+        with open("Workout.txt" ,"a" ,encoding ="utf-8") as file :
+            
+            file.write(f"{workout1}\n")   
+        
         add_window2.destroy()
         
     tk.Button(add_window2 ,text="Save" ,width=15 ,command =save_workout).pack(pady=5)
