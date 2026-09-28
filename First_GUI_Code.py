@@ -77,6 +77,10 @@ def add_workout():
     tk.Label(add_window2 ,text="Put your new Workout : ").pack(pady=5)
     entry_wo = tk.Entry(add_window2 ,width=30)
     entry_wo.pack(pady=5)
+    
+    message_label = tk.Label(add_window2, text="", fg="red")
+    message_label.pack(pady=5)   
+    
     def save_workout():
         workout1 = entry_wo.get().strip()
 
@@ -84,8 +88,9 @@ def add_workout():
             message_label.config(text="⚠ Please fill the field!") 
             return 
         with open("workout.txt" ,"a" ,encoding ="utf-8") as file :
-            workout1.append(workout)
-        
+            workout.append(workout1)
+            file.write(f"{Workout1}\n")   
+            
         add_window2.destroy()
         
     tk.Button(add_window2 ,text="Save" ,width=15 ,command =save_workout).pack(pady=5)
