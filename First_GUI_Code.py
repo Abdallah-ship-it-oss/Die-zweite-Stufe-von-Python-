@@ -116,38 +116,6 @@ but5 = tk.Button(window, text="5 - Close App.",
                  width=30, command=window.destroy)
 but5.pack(pady=5)
 
-window.mainloop()
-
-        add_window.destroy()  
-    
-tk.Button(add_window ,text = "save" ,width = 15 ,command = save_word).pack(pady = 10)
-tk.Button(add_window ,text = "Cancel" ,width = 15 ,command = add_window.destroy).pack(pady = 5)
-
-  
-  
-but1 = tk.Button(window ,text ="1 - Add new German word. " ,width = 30 ,command = add_word)
-but1.pack(pady = 5)
-
-
-but2 = tk.Button(window ,text ="2 - Add new Workout. " ,width = 30 )
-but2.pack(pady = 5)
-
-
-but3 = tk.Button(window ,text ="3 - German words test. " ,width = 30 )
-but3.pack(pady = 5)
-
-
-but4 = tk.Button(window ,text ="4 - show all data. " ,width = 30 )
-but4.pack(pady = 5)
-
-
-but5 = tk.Button(window, text ="5 - Close App . " ,width = 30 ,command = window.destroy)
-but5.pack(pady = 5)
-
-
-
-
-
 
 
 window.mainloop()
