@@ -84,12 +84,13 @@ def add_workout():
             message_label.config(text="⚠ Please fill the field!") 
             return 
         with open("add_workout.txt" ,"a" ,encoding ="utf-8") as file :
-            file.write(f"{Workout}"\n)
+            file.write(f"{Workout}\n")
         
         add_window.destroy()
         
     tk.Button(add_window2 ,text="Save" ,width=15 ,command =save_workout).pack(pady=5)
     tk.Button(add_window2 ,text="Cancel" ,width=15 ,command=add_window2.destroy).pack(pady=5)
+
 #================================================================
 # Buttons ✅️
 #================================================================
@@ -97,7 +98,7 @@ but1 = tk.Button(window, text="1 - Add new German word.",
                  width=30, command=add_word)
 but1.pack(pady=5)
 
-but2 = tk.Button(window, text="2 - Add new Workout.", width=30)
+but2 = tk.Button(window, text="2 - Add new Workout.", width=30 ,command=add_workout)
 but2.pack(pady=5)
 
 but3 = tk.Button(window, text="3 - German words test.", width=30)
