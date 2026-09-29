@@ -140,7 +140,7 @@ def word_test():
         else :
             result_label.config(text =f"wrong answer 😿 the answer ist : {correct_answer}" ,fg="red") 
     tk.Button(test_window ,text ="Check" ,width =15 ,command=check_answer).pack(pady=5)
-    tk.Button(test_window ,text ="Close" ,width =15 ,command=word_test.destroy).pack(pady=5)
+    tk.Button(test_window ,text ="Close" ,width =15 ,command=test_window.destroy).pack(pady=5)
 
 #================================================================
 # Buttons ✅️
