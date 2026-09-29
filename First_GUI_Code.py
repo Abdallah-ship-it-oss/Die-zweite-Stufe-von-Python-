@@ -107,40 +107,87 @@ def word_test():
         error_window = tk.Toplevel(window)
         error_window.title("ERROR")
         error_window.geometry("300x100")
-        tk.Label(error_window ,text ="there is no words yet! ",fg ="red").pack(pady=20)
-        tk.Button(error_window ,text="Ok " ,command =error_window.destroy).pack(pady=5)
+        tk.Label(error_window, text="There are no words yet!",
+                 fg="red").pack(pady=20)
+        tk.Button(error_window, text="OK",
+                  command=error_window.destroy).pack(pady=5)
         return
-        
-    test_window =tk.Toplevel(window)
-    test_window.title("German words test")
-    test_window.geometry("400x350")
-
-    random_key = random.choice(list(word_book.keys()))
-    correct_answer = word_book[random_key] 
     
-    tk.Label(test_window ,text ="Tranclate this word :" ,font=("Arial",12)).pack(pady=10)
-    tk.Label(test_window ,text = random_key ,font=("Arial",20,"bold")).pack(pady=10)
-
-    tk.Label(test_window ,text="Enter your answer :").pack(pady=5)
-    entry_answer = tk.Entry(test_window, width =30)
+    test_window = tk.Toplevel(window)
+    test_window.title("German Words Test")
+    test_window.geometry("400x400")
+    
+    random_key = ""
+    correct_answer = ""
+    score_correct = 0
+    score_wrong = 0
+    
+    tk.Label(test_window, text="Translate this word:",
+             font=("Arial", 12)).pack(pady=10)
+    
+    
+    question_label = tk.Label(test_window, text="",
+                              font=("Arial", 20, "bold"), fg="blue")
+    question_label.pack(pady=10)
+    
+    
+    tk.Label(test_window, text="Your answer:").pack(pady=5)
+    entry_answer = tk.Entry(test_window, width=30)
     entry_answer.pack(pady=5)
-
-    result_label = tk.Label(test_window ,text ="" ,font=("Arial", 12))
-    result_label.pack(pady= 10)
-
+    
+    
+    result_label = tk.Label(test_window, text="", font=("Arial", 12))
+    result_label.pack(pady=10)
+    
+    
+    score_label = tk.Label(test_window, text="✅ 0  |  ❌ 0",
+                           font=("Arial", 11))
+    score_label.pack(pady=5)
+    
+    
+    def load_new_question():
+        nonlocal random_key, correct_answer
+        
+        random_key = random.choice(list(word_book.keys()))
+        correct_answer = word_book[random_key]
+        
+        question_label.config(text=random_key)
+        entry_answer.delete(0, tk.END)
+        result_label.config(text="")
+    
+    
     def check_answer():
+        nonlocal score_correct, score_wrong
+        
         user_answer = entry_answer.get().strip()
         
-        if not user_answer :
-            result_label.config(text ="⚠ Please fill the field!" ,fg="red") 
+        if not user_answer:
+            result_label.config(text="⚠ Please write an answer!",
+                                fg="red")
             return
+        
+        if user_answer == correct_answer:
+            score_correct += 1
+            result_label.config(text="✅ Correct! 😸", fg="green")
+        else:
+            score_wrong += 1
+            result_label.config(
+                text=f"❌ Wrong! The answer is: {correct_answer}",
+                fg="red")
+        
 
-        if user_answer == correct_answer :
-            result_label.config(text ="correct 😸" ,fg="green") 
-        else :
-            result_label.config(text =f"wrong answer 😿 the answer ist : {correct_answer}" ,fg="red") 
-    tk.Button(test_window ,text ="Check" ,width =15 ,command=check_answer).pack(pady=5)
-    tk.Button(test_window ,text ="Close" ,width =15 ,command=test_window.destroy).pack(pady=5)
+        score_label.config(text=f"✅ {score_correct}  |  ❌ {score_wrong}")
+    
+    
+    load_new_question()
+    
+    
+    tk.Button(test_window, text="Check", width=15,
+              command=check_answer).pack(pady=5)
+    tk.Button(test_window, text="Next", width=15,
+              command=load_new_question).pack(pady=5)
+    tk.Button(test_window, text="Close", width=15,
+              command=test_window.destroy).pack(pady=5)
 
 #================================================================
 # Buttons ✅️
