@@ -110,6 +110,7 @@ def word_test():
         tk.Label(error_window ,text ="there is no words yet! ",fg ="red").pack(pady=20)
         tk.Button(error_window ,text="Ok " ,command =error_window.destroy).pack(pady=5)
         return
+        
     test_window =tk.Toplevel(window)
     test_window.title("German words test")
     test_window.geometry("400x350")
@@ -117,14 +118,29 @@ def word_test():
     random_key = random.choice(list(word_book.keys()))
     correct_answer = word_book[random_key] 
     
-    tk.Label(test_window ,text ="Tranclate this word :" ,font=("Arial",12).pack(pady=10)
-    tk.Label(test_window ,text = random_key ,font=("Arial",20,"bold") ,fg="blue).pack(pady=10)
+    tk.Label(test_window ,text ="Tranclate this word :" ,font=("Arial",12)).pack(pady=10)
+    tk.Label(test_window ,text = random_key ,font=("Arial",20,"bold")).pack(pady=10)
 
     tk.Label(test_window ,text="Enter your answer :").pack(pady=5)
     entry_answer = tk.Entry(test_window, width =30)
     entry_answer.pack(pady=5)
 
-    
+    result_label = tk.Label(test_window ,text ="" ,font=("Arial", 12))
+    result_label.pack(pady= 10)
+
+    def check_answer():
+        user_answer = entry_answer.get().strip()
+        
+        if not user_answer :
+            result_label.config(text ="⚠ Please fill the field!" ,fg="red") 
+            return
+
+        if user_answer == correct_answer :
+            result_label.config(text ="correct 😸" ,fg="green") 
+        else :
+            result_label.config(text =f"wrong answer 😿 the answer ist : {correct_answer}" ,fg="red") 
+    tk.Button(test_window ,text ="Check" ,width =15 ,command=check_answer).pack(pady=5)
+    tk.Button(test_window ,text ="Close" ,width =15 ,command=word_test.destroy).pack(pady=5)
 
 #================================================================
 # Buttons ✅️
@@ -136,7 +152,7 @@ but1.pack(pady=5)
 but2 = tk.Button(window, text="2 - Add new Workout.", width=30 ,command=add_workout)
 but2.pack(pady=5)
 
-but3 = tk.Button(window, text="3 - German words test.", width=30)
+but3 = tk.Button(window, text="3 - German words test.", width=30 ,command=word_test)
 but3.pack(pady=5)
 
 but4 = tk.Button(window, text="4 - Show all data.", width=30)
