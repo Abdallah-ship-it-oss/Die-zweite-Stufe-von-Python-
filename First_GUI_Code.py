@@ -11,6 +11,7 @@
 #============================================
 
 import tkinter as tk
+import random 
 
 #===================
 word_book = {}
@@ -98,6 +99,32 @@ def add_workout():
         
     tk.Button(add_window2 ,text="Save" ,width=15 ,command =save_workout).pack(pady=5)
     tk.Button(add_window2 ,text="Cancel" ,width=15 ,command=add_window2.destroy).pack(pady=5)
+
+#================================================================
+
+def word_test():
+    if not word_book:
+        error_window = tk.Toplevel(window)
+        error_window.title("ERROR")
+        error_window.geometry("300x100")
+        tk.Label(error_window ,text ="there is no words yet! ",fg ="red").pack(pady=20)
+        tk.Button(error_window ,text="Ok " ,command =error_window.destroy).pack(pady=5)
+        return
+    test_window =tk.Toplevel(window)
+    test_window.title("German words test")
+    test_window.geometry("400x350")
+
+    random_key = random.choice(list(word_book.keys()))
+    correct_answer = word_book[random_key] 
+    
+    tk.Label(test_window ,text ="Tranclate this word :" ,font=("Arial",12).pack(pady=10)
+    tk.Label(test_window ,text = random_key ,font=("Arial",20,"bold") ,fg="blue).pack(pady=10)
+
+    tk.Label(test_window ,text="Enter your answer :").pack(pady=5)
+    entry_answer = tk.Entry(test_window, width =30)
+    entry_answer.pack(pady=5)
+
+    
 
 #================================================================
 # Buttons ✅️
