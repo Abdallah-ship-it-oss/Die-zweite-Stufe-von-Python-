@@ -190,6 +190,14 @@ def word_test():
               command=test_window.destroy).pack(pady=5)
 
 #================================================================
+def show_data ():
+    if not word_book and Workout :
+        
+
+
+
+
+#================================================================
 # Buttons ✅️
 #================================================================
 but1 = tk.Button(window, text="1 - Add new German word.",
