@@ -191,14 +191,7 @@ def word_test():
 
 #================================================================
 def show_data():
-    if not word_book and not Workout :
-        error_window2 = tk.Toplevel(window)  
-        error_window2.title("ERROR")
-        error_window2.geometry("350x280")
-        tk.Label(error_window2 ,text="there is no data yet !" ,fg ="red").pack(pady=20)
-        tk.Button(error_window2 ,text="OK" ,command=error_window2.destroy).pack("pady=5")
-        return 
-
+    
     show_window = tk.Toplevel(window)
     show_window.title("All Data ")
     show_window.geometry("400x500")
@@ -247,7 +240,7 @@ but2.pack(pady=5)
 but3 = tk.Button(window, text="3 - German words test.", width=30 ,command=word_test)
 but3.pack(pady=5)
 
-but4 = tk.Button(window, text="4 - Show all data.", width=30)
+but4 = tk.Button(window, text="4 - Show all data.", width=30 ,command=show_data)
 but4.pack(pady=5)
 
 but5 = tk.Button(window, text="5 - Close App.",
