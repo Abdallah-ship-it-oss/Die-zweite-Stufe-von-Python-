@@ -190,10 +190,15 @@ def word_test():
               command=test_window.destroy).pack(pady=5)
 
 #================================================================
-def show_data ():
-    if not word_book and Workout :
-        
+def show_data():
+    if not word_book and not Workout :
+        error_window2 = tk.Toplevel(window)  
+        error_window2.title("ERROR")
+        error_window2.geometry("350x280")
+        tk.Label(error_window2 ,text="there is no data yet !" ,fg ="red").pack(pady=20)
+        tk.Button(error_window2 ,text="OK" ,command=error_window2.destroy).pack("pady=5")
 
+    
 
 
 
