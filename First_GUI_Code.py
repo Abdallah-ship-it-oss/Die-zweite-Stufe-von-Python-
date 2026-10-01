@@ -197,9 +197,41 @@ def show_data():
         error_window2.geometry("350x280")
         tk.Label(error_window2 ,text="there is no data yet !" ,fg ="red").pack(pady=20)
         tk.Button(error_window2 ,text="OK" ,command=error_window2.destroy).pack("pady=5")
+        return 
 
-    
+    show_window = tk.Toplevel(window)
+    show_window.title("All Data ")
+    show_window.geometry("400x500")
 
+    tk.Label(show_window ,text="All Data :-" ,font=(Arial,14,bold)).pack(pady=20)
+    text_box = tk.Text(show_window ,height=18 ,width=45 ,font=("Courier New",11))
+    text_box.pack(pady=10 ,padx=10)
+
+    scrollbar = tk.Scrollbar(show_window ,command=text_box.yview)
+    scrollbar.pack(side="right" ,fill="y")
+    text_box.config(yscrollcommand=scrollbar.set)
+
+    text_box.insert("end","="*30+"\n")
+    text_box.insert("end","German words 🇩🇪\n")
+    text_box.insert("end","="*30+"\n\n")
+    if not word_book :
+        text_box.insert("end"," no words yet ❌️\n")
+    else :
+        for german , arabic in word_book.items():
+            text_box.insert("end" ,f"{german}   --->  {arabic}\n") 
+            text_box.insert("end" ,"\n\n")
+
+    text_box.insert("end","="*30+"\n")
+    text_box.insert("end","Workouts🦍\n")
+    text_box.insert("end","="*30+"\n\n")
+    if not Workout :
+        text_box.insert("end"," no Workouts yet ❌️\n")
+    else:
+        for number, exercises in enumerate(Workout, 1):
+            text_box.insert("end" ,f"{number}- {exercises} \n")
+            text_box.config(state="disabled")            
+
+    tk.Button(show_window ,text ="Close" ,width=15 ,command=show_window.destroy).pack(pady=10)
 
 
 #================================================================
