@@ -196,7 +196,7 @@ def show_data():
     show_window.title("All Data ")
     show_window.geometry("400x500")
 
-    tk.Label(show_window ,text="All Data :-" ,font=(Arial,14,bold)).pack(pady=20)
+    tk.Label(show_window ,text="All Data :-" ,font=("Arial",14,"bold")).pack(pady=20)
     text_box = tk.Text(show_window ,height=18 ,width=45 ,font=("Courier New",11))
     text_box.pack(pady=10 ,padx=10)
 
@@ -211,8 +211,8 @@ def show_data():
         text_box.insert("end"," no words yet ❌️\n")
     else :
         for german , arabic in word_book.items():
-            text_box.insert("end" ,f"{german}   --->  {arabic}\n") 
-            text_box.insert("end" ,"\n\n")
+            text_box.insert("end" ,f"{german}   --->  {arabic}\n\n") 
+            
 
     text_box.insert("end","="*30+"\n")
     text_box.insert("end","Workouts🦍\n")
@@ -222,7 +222,7 @@ def show_data():
     else:
         for number, exercises in enumerate(Workout, 1):
             text_box.insert("end" ,f"{number}- {exercises} \n")
-            text_box.config(state="disabled")            
+    text_box.config(state="disabled")            
 
     tk.Button(show_window ,text ="Close" ,width=15 ,command=show_window.destroy).pack(pady=10)
 
